@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel_Character_Create = new System.Windows.Forms.Panel();
+            this.button_Teams = new System.Windows.Forms.Button();
             this.button_OpenInventory = new System.Windows.Forms.Button();
             this.label_ExperienceValue = new System.Windows.Forms.Label();
             this.label_Experience = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@
             // panel_Character_Create
             // 
             this.panel_Character_Create.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Character_Create.Controls.Add(this.button_Teams);
             this.panel_Character_Create.Controls.Add(this.button_OpenInventory);
             this.panel_Character_Create.Controls.Add(this.label_ExperienceValue);
             this.panel_Character_Create.Controls.Add(this.label_Experience);
@@ -135,10 +137,21 @@
             this.panel_Character_Create.Size = new System.Drawing.Size(627, 559);
             this.panel_Character_Create.TabIndex = 0;
             // 
+            // button_Teams
+            // 
+            this.button_Teams.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Teams.Location = new System.Drawing.Point(220, 110);
+            this.button_Teams.Name = "button_Teams";
+            this.button_Teams.Size = new System.Drawing.Size(159, 63);
+            this.button_Teams.TabIndex = 23;
+            this.button_Teams.Text = "Команды";
+            this.button_Teams.UseVisualStyleBackColor = true;
+            this.button_Teams.Click += new System.EventHandler(this.button_Teams_Click);
+            // 
             // button_OpenInventory
             // 
             this.button_OpenInventory.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button_OpenInventory.Location = new System.Drawing.Point(366, 110);
+            this.button_OpenInventory.Location = new System.Drawing.Point(437, 110);
             this.button_OpenInventory.Name = "button_OpenInventory";
             this.button_OpenInventory.Size = new System.Drawing.Size(159, 63);
             this.button_OpenInventory.TabIndex = 22;
@@ -769,5 +782,6 @@
         public Label label_ConstitutionValue;
         public Label label_DexterityValue;
         public Label label_StrengthValue;
+        private Button button_Teams;
     }
 }

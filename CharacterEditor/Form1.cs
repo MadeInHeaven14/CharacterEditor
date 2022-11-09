@@ -499,6 +499,14 @@ namespace CharacterEditor
                 {
                     Warrior warrior = new Warrior();
                     warrior.CharacterName = tb_CharacterName.Text;
+                    foreach (var item in Items)
+                    {
+                        Damage += item.Damage;
+                        Hp += item.Hp;
+                        PhDef += item.PhDef;
+                        Mana += item.Mana;
+                        MageAttack += item.MageAttack;
+                    }
                     warrior.Damage = Damage;
                     warrior.HP = Hp;
                     warrior.PhDefense = PhDef;
@@ -523,6 +531,14 @@ namespace CharacterEditor
                 {
                     Rogue rogue = new Rogue();
                     rogue.CharacterName = tb_CharacterName.Text;
+                    foreach (var item in Items)
+                    {
+                        Damage += item.Damage;
+                        Hp += item.Hp;
+                        PhDef += item.PhDef;
+                        Mana += item.Mana;
+                        MageAttack += item.MageAttack;
+                    }
                     rogue.Damage = Damage;
                     rogue.HP = Hp;
                     rogue.PhDefense = PhDef;
@@ -547,6 +563,14 @@ namespace CharacterEditor
                 {
                     Wizard wizard = new Wizard();
                     wizard.CharacterName = tb_CharacterName.Text;
+                    foreach (var item in Items)
+                    {
+                        Damage += item.Damage;
+                        Hp += item.Hp;
+                        PhDef += item.PhDef;
+                        Mana += item.Mana;
+                        MageAttack += item.MageAttack;
+                    }
                     wizard.Damage = Damage;
                     wizard.HP = Hp;
                     wizard.PhDefense = PhDef;
@@ -940,10 +964,18 @@ namespace CharacterEditor
                 warrior.Constitution = Convert.ToInt32(label_ConstitutionValue.Text);
                 warrior.Intelligence = Convert.ToInt32(label_IntelligenceValue.Text);
                 warrior.HP = Convert.ToDouble(label_HPValue.Text);
-                warrior.Damage = Convert.ToDouble(label_DamageValue.Text);
-                warrior.MageAttack = Convert.ToDouble(label_MageAttackValue.Text);
-                warrior.Mana = Convert.ToDouble(label_ManaValue.Text);
-                warrior.PhDefense = Convert.ToDouble(label_PDefValue.Text);
+                foreach (var item in Items)
+                {
+                    Damage += item.Damage;
+                    Hp += item.Hp;
+                    PhDef += item.PhDef;
+                    Mana += item.Mana;
+                    MageAttack += item.MageAttack;
+                }
+                warrior.Damage = Damage;
+                warrior.MageAttack = MageAttack;
+                warrior.Mana = Mana;
+                warrior.PhDefense = PhDef;
                 warrior.SkillPoint = Convert.ToInt32(label_SkillPointValue.Text);
                 warrior.Lvl = Convert.ToInt32(label_LVLValue.Text);
                 warrior.Exp = Convert.ToInt32(label_ExperienceValue.Text);
@@ -1145,6 +1177,7 @@ namespace CharacterEditor
                 inv.Constitution = constitution;
                 inv.Intelligence = intelligence;
 
+
                 var unit = collection.Find(x => x.CharacterName == tb_CharacterName.Text.ToString()).FirstOrDefault();
                 //MessageBox.Show(unit.CharacterName);
                 inv.Show();
@@ -1257,14 +1290,13 @@ namespace CharacterEditor
                 }
                 AllItems = inv.AllItems;
                 Items = inv.items;
-                Damage = Convert.ToInt32(label_DamageValue.Text);
-                Damage = 50;
-                PhDef += inv.PhDef;
-                Hp += inv.Hp;
-                Mana += inv.Mana;
-                MageAttack += inv.MageAttack;
-                label_DamageValue.Text = Damage.ToString();
             }
+        }
+
+        private void button_Teams_Click(object sender, EventArgs e)
+        {
+            Teams team = new Teams();
+            team.Show();
         }
     }
 }
